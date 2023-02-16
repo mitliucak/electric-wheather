@@ -1,0 +1,35 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="referrer" content="always"><meta name="report" content='{"spm":"1018.2226","disabled":"true"}'><meta name="csdn-baidu-search" content='{"keyword":""}'><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="icon" href="https://csdnimg.cn/public/favicon.ico"><title></title><script src="https://csdnimg.cn/public/common/libs/jquery/jquery-1.9.1.min.js"></script><script src="https://g.csdnimg.cn/baidu-search/1.0.10/baidu-search.js"></script><script>var CFG = {
+      API_URL: "//so.csdn.net/so/",
+      js_insert_first: true,
+      js_insert_count: 0
+    }</script><link href="https://csdnimg.cn/release/searchv2-fe/css/chunk-7cde1fe3.9fe153cc.css" rel="prefetch"><link href="https://csdnimg.cn/release/searchv2-fe/js/chunk-7cde1fe3.701f2159.js" rel="prefetch"><link href="https://csdnimg.cn/release/searchv2-fe/js/chunk-bad5d2d4.ede6ddb0.js" rel="prefetch"><link href="https://csdnimg.cn/release/searchv2-fe/css/index.ac6ffbc8.css" rel="preload" as="style"><link href="https://csdnimg.cn/release/searchv2-fe/js/chunk-vendors.3e67b871.js" rel="preload" as="script"><link href="https://csdnimg.cn/release/searchv2-fe/js/index.8de85a74.js" rel="preload" as="script"><link href="https://csdnimg.cn/release/searchv2-fe/css/index.ac6ffbc8.css" rel="stylesheet"></head><body style="position: relative;"><noscript><strong>We're sorry but search-fe-v2 doesn't work properly without JavaScript enabled. Please enable it to continue.</strong></noscript><div id="app"></div><script id="toolbar-tpl-scriptId" prod="so" skin="black" src="https://g.csdnimg.cn/common/csdn-toolbar/csdn-toolbar.js" domain="//so.csdn.net/so/"></script><script src="https://g.csdnimg.cn/common/csdn-login-box/csdn-login-box.js"></script><script src="https://g.csdnimg.cn/user-tooltip/2.4/user-tooltip.js"></script><script>// 判断是不是ie浏览器
+  if (!!window.ActiveXObject || 'ActiveXObject' in window) {
+    // 判断是不是ie10以上
+    if (!(/msie [6|7|8|9]/i.test(navigator.userAgent))) {
+      //ie10以上
+      if (!window.upgrade) {
+        window.upgrade = true
+        let s = document.createElement('script')
+        s.src = 'https://g.csdnimg.cn/browser_upgrade/1.0.2/browser_upgrade.js'
+        let x = document.getElementsByTagName('script')[0]
+        x.parentNode.insertBefore(s, x)
+      }
+    }
+  }</script><script>window.onload = function () {
+    if (window.csdn && typeof window.csdn.configuration_tool_parameterv === 'function') {
+      window.csdn.configuration_tool_parameterv({
+        need_change_function: function (flag) {
+          let c_toolbar = $('#csdn-toolbar')
+          let s_toolbar = $('.so-toolbar')
+          let advert = $('#csdn-toolbar .toolbar-advert')
+          if (flag === 'fixed') {
+            if (advert.length) advert.hide()
+            s_toolbar.addClass('fixed').css('top', '0px')
+          } else if (flag === 'noFixed') {
+            if (advert.length) advert.show()
+            s_toolbar.removeClass('fixed')
+          }
+        }
+      })
+    }
+  }</script><script src="//g.csdnimg.cn/common/csdn-report/report.js" defer></script><script src="//g.csdnimg.cn/fixed-sidebar/1.1.6/fixed-sidebar.js"></script><script src="https://csdnimg.cn/release/searchv2-fe/js/chunk-vendors.3e67b871.js"></script><script src="https://csdnimg.cn/release/searchv2-fe/js/index.8de85a74.js"></script></body></html>
