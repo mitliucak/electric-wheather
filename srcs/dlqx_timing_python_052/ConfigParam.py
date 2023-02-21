@@ -9,3 +9,10 @@ urlconfig = {
    'jkurl': 'http://121.52.212.109:8082/thredds/catalog/testAll/',
    'localdirpath': '/meteorological/meteorological_file/update/'
 }
+
+db_url = {
+   'jdbc_url1' : 'jdbc:mysql://127.0.0.1:13306/dlqx_06?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=GMT%2B8&autoReconnect=true',
+   'jdbc_url2' : 'jdbc:mysql://127.0.0.1:13307/dlqx_07?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=GMT%2B8&autoReconnect=true',
+   'jdbc_url3' : 'jdbc:mysql://127.0.0.1:13308/dlqx_08?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=GMT%2B8&autoReconnect=true',
+   'uandp' : ['root', '123456']
+}

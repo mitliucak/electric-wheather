@@ -4,6 +4,7 @@ import datetime
 import pymysql
 import jaydebeapi
 import jpype
+import ConfigParam
 jar_file = 'sgjdbc_4.3.18.1_20200115.jar'
 # driver = 'sgcc.nds.jdbc.driver.NdsDriver'
 # jdbc_url1 = 'jdbc:nds://172.20.42.5:18701,172.20.42.6:18701/v_18701_dlqxsync_13306?appname=app_dlqxsync_13306&allowMultiQueries=true&useUnicode=true&characterEncoding=UTF-8'
@@ -13,10 +14,14 @@ jar_file = 'sgjdbc_4.3.18.1_20200115.jar'
 
 jar_file = 'mysql-connector-java-8.0.11.jar'
 driver = 'com.mysql.cj.jdbc.Driver'
-jdbc_url1 = 'jdbc:mysql://121.52.212.109:13306/06dlqxsync?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC&useSSL=false&allowPublicKeyRetrieval=true'
-jdbc_url2 = 'jdbc:mysql://121.52.212.109:13307/07dlqxsync?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC&useSSL=false&allowPublicKeyRetrieval=true'
-jdbc_url3 = 'jdbc:mysql://121.52.212.109:13308/08dlqx_zl?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC&useSSL=false&allowPublicKeyRetrieval=true'
-uandp = ["root", "123456"]
+#jdbc_url1 = 'jdbc:mysql://121.52.212.109:13306/06dlqxsync?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC&useSSL=false&allowPublicKeyRetrieval=true'
+#jdbc_url2 = 'jdbc:mysql://121.52.212.109:13307/07dlqxsync?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC&useSSL=false&allowPublicKeyRetrieval=true'
+#jdbc_url3 = 'jdbc:mysql://121.52.212.109:13308/08dlqx_zl?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC&useSSL=false&allowPublicKeyRetrieval=true'
+#uandp = ["root", "123456"]
+jdbc_url1 = ConfigParam.db_url['jdbc_url1']
+jdbc_url2 = ConfigParam.db_url['jdbc_url2']
+jdbc_url3 = ConfigParam.db_url['jdbc_url3']
+uandp = ConfigParam.db_url['uandp']
 
 #从nc中获取某一个属性的全部值，返回装有json字典对象的List
 # 传入值filePath：nc文件路径  Attr 需要解析的属性的名称

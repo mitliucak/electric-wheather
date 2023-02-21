@@ -5,6 +5,7 @@ import numpy as np
 import json
 import datetime
 import pymysql
+import ConfigParam
 
 # jar_file = 'sgjdbc_4.3.18.1_20200115.jar'
 # driver = 'sgcc.nds.jdbc.driver.NdsDriver'
@@ -15,10 +16,14 @@ import pymysql
 
 jar_file = 'mysql-connector-java-8.0.11.jar'
 driver = 'com.mysql.cj.jdbc.Driver'
-jdbc_url1 = 'jdbc:mysql://121.52.212.109:13306/06dlqxsync?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC&useSSL=false&allowPublicKeyRetrieval=true'
-jdbc_url2 = 'jdbc:mysql://121.52.212.109:13307/07dlqxsync?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC&useSSL=false&allowPublicKeyRetrieval=true'
-jdbc_url3 = 'jdbc:mysql://121.52.212.109:13308/08dlqx_zl?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC&useSSL=false&allowPublicKeyRetrieval=true'
+#jdbc_url1 = 'jdbc:mysql://121.52.212.109:13306/06dlqxsync?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC&useSSL=false&allowPublicKeyRetrieval=true'
+#jdbc_url2 = 'jdbc:mysql://121.52.212.109:13307/07dlqxsync?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC&useSSL=false&allowPublicKeyRetrieval=true'
+#jdbc_url3 = 'jdbc:mysql://121.52.212.109:13308/08dlqx_zl?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC&useSSL=false&allowPublicKeyRetrieval=true'
 # uandp = ["root", "123456"]
+jdbc_url1 = ConfigParam.db_url['jdbc_url1']
+jdbc_url2 = ConfigParam.db_url['jdbc_url2']
+jdbc_url3 = ConfigParam.db_url['jdbc_url3']
+uandp = ConfigParam.db_url['uandp']
 conn1=jaydebeapi.connect(driver,jdbc_url1,['root','123456'],jar_file)
 conn2=jaydebeapi.connect(driver,jdbc_url2,['root','123456'],jar_file)
 conn3=jaydebeapi.connect(driver,jdbc_url3,['root','123456'],jar_file)

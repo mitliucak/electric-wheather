@@ -20,6 +20,7 @@ import LAPSNcToJson
 import analysisNc_GDFS
 import analysisNc_LAPS
 import jpype
+import ConfigParam
 # jar_file = 'sgjdbc_4.3.18.1_20200115.jar'
 # driver = 'sgcc.nds.jdbc.driver.NdsDriver'
 # jdbc_url1 = 'jdbc:nds://172.20.42.5:18701,172.20.42.6:18701/v_18701_dlqxsync_13306?appname=app_dlqxsync_13306&allowMultiQueries=true&useUnicode=true&characterEncoding=UTF-8'
@@ -29,10 +30,14 @@ import jpype
 
 jar_file = 'mysql-connector-java-8.0.11.jar'
 driver = 'com.mysql.cj.jdbc.Driver'
-jdbc_url1 = 'jdbc:mysql://121.52.212.109:13306/06dlqxsync?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC&useSSL=false&allowPublicKeyRetrieval=true'
-jdbc_url2 = 'jdbc:mysql://121.52.212.109:13307/07dlqxsync?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC&useSSL=false&allowPublicKeyRetrieval=true'
-jdbc_url3 = 'jdbc:mysql://121.52.212.109:13308/08dlqx_zl?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC&useSSL=false&allowPublicKeyRetrieval=true'
-uandp = ["root", "123456"]
+#jdbc_url1 = 'jdbc:mysql://121.52.212.109:13306/06dlqxsync?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC&useSSL=false&allowPublicKeyRetrieval=true'
+#jdbc_url2 = 'jdbc:mysql://121.52.212.109:13307/07dlqxsync?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC&useSSL=false&allowPublicKeyRetrieval=true'
+#jdbc_url3 = 'jdbc:mysql://121.52.212.109:13308/08dlqx_zl?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC&useSSL=false&allowPublicKeyRetrieval=true'
+#uandp = ["root", "123456"]
+jdbc_url1 = ConfigParam.db_url['jdbc_url1']
+jdbc_url2 = ConfigParam.db_url['jdbc_url2']
+jdbc_url3 = ConfigParam.db_url['jdbc_url3']
+uandp = ConfigParam.db_url['uandp']
 #获取未解析的nc文件
 def getNcFile():
     ncList = []
@@ -41,8 +46,10 @@ def getNcFile():
         try:
             # conn = pymysql.connect(host='localhost', user='root', passwd='', port=3306, db='dlqx13306')  # 连接数据库
             # cursor = conn.cursor()
+            print("begin connect mysql")
             conn = jaydebeapi.connect(driver,jdbc_url1,uandp,jar_file)
             cursor = conn.cursor()
+            print("end connect mysql")
             cursor.execute(sql)
             # conn.commit()
             ncList = cursor.fetchall()
@@ -135,7 +142,9 @@ def ncDataToMysql(filepath,jrsjid1,jrsjid2,jrsjid3):
 
 #解析nc文件到mysql
 def main():
+    print("begin get nc file")
     ncList = getNcFile()
+    print("get nc file finish")
     for item in ncList:
         fileName = item[0]
         filelocation = item[1]
@@ -143,6 +152,10 @@ def main():
         jrsjid1 = jrsjids['one']
         jrsjid2 = jrsjids['two']
         jrsjid3 = jrsjids['three']
+        print(fileName)
+        print(jrsjid1)
+        print(jrsjid2)
+        print(jrsjid3)
         # 解析nc数据
         ncDataToMysql(filelocation,jrsjid1,jrsjid2,jrsjid3)
         # 解析nc文件参数

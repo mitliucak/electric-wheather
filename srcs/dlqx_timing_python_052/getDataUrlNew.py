@@ -21,10 +21,14 @@ import jpype
 
 jar_file = 'mysql-connector-java-8.0.11.jar'
 driver = 'com.mysql.cj.jdbc.Driver'
-jdbc_url1 = 'jdbc:mysql://121.52.212.109:13306/06dlqxsync?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC&useSSL=false&allowPublicKeyRetrieval=true'
-jdbc_url2 = 'jdbc:mysql://121.52.212.109:13307/07dlqxsync?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC&useSSL=false&allowPublicKeyRetrieval=true'
-jdbc_url3 = 'jdbc:mysql://121.52.212.109:13308/08dlqx_zl?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC&useSSL=false&allowPublicKeyRetrieval=true'
-uandp = ["root", "123456"]
+#jdbc_url1 = 'jdbc:mysql://121.52.212.109:13306/06dlqxsync?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC&useSSL=false&allowPublicKeyRetrieval=true'
+#jdbc_url2 = 'jdbc:mysql://121.52.212.109:13307/07dlqxsync?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC&useSSL=false&allowPublicKeyRetrieval=true'
+#jdbc_url3 = 'jdbc:mysql://121.52.212.109:13308/08dlqx_zl?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC&useSSL=false&allowPublicKeyRetrieval=true'
+#uandp = ["root", "123456"]
+jdbc_url1 = ConfigParam.db_url['jdbc_url1']
+jdbc_url2 = ConfigParam.db_url['jdbc_url2']
+jdbc_url3 = ConfigParam.db_url['jdbc_url3']
+uandp = ConfigParam.db_url['uandp']
 
 def DaquLogJrsjIntoMysql(type,failinfo,status,url, name, dataType, size, update):
     print("接入数据下载调用DaquLogJrsjIntoMysql")
@@ -280,14 +284,14 @@ def GetUrlAndDownloadsFileByType(Urldir, fileType):
     except Exception as e:
         print("GetUrlAndDownloadsFileByType ----- " + str(e))
 
-# if __name__ == '__main__':
-#     ll = ["alarm/", "SURF_CHN_MUL_HOR_N/", "SURF_CHN_MUL_HOR/", "SCW_CN/", "RADI_CHN_MUL_HOR/", "OCF/1H/",
-#           "LAPS/GR2/","CG_QXZH/","HJ_QXZH/","DX_JBZH/"]
-#     ntype = ["灾害预警", "国家站小时", "自动站小时", "SCW强对流预报", "辐射逐小时", "OCF逐小时预报", "3KM实时网格","常规气象灾害","环境气象灾害","电线积冰灾害"]
-#     for i, m in zip(ll, ntype):
-#         GetUrlAndDownloadsFileByType(i, m)
-#     ybll = ["GDFS/SHYS_VIS/","GDFS/SFER_EDA10/","GDFS/QPF_R24/","GDFS/QPF_R12/","GDFS/QPF_R06/","GDFS/QPF_R03/",
-#             "GDFS/QPF_PPH/","GDFS/OEFS_TMP/","GDFS/OEFS_TMIN/","GDFS/OEFS_TMAX/","GDFS/OEFS_RRH/","GDFS/OEFS_RHMX/","GDFS/OEFS_RHMI/","GDFS/OEFS_ECT/"]
-#     for yb in ybll:
-#         GetUrlAndDownloadsFileByType(yb,"5KM预报网格")
+if __name__ == '__main__':
+    ll = ["alarm/", "SURF_CHN_MUL_HOR_N/", "SURF_CHN_MUL_HOR/", "SCW_CN/", "RADI_CHN_MUL_HOR/", "OCF/1H/",
+          "LAPS/GR2/","CG_QXZH/","HJ_QXZH/","DX_JBZH/"]
+    ntype = ["灾害预警", "国家站小时", "自动站小时", "SCW强对流预报", "辐射逐小时", "OCF逐小时预报", "3KM实时网格","常规气象灾害","环境气象灾害","电线积冰灾害"]
+    for i, m in zip(ll, ntype):
+        GetUrlAndDownloadsFileByType(i, m)
+    ybll = ["GDFS/SHYS_VIS/","GDFS/SFER_EDA10/","GDFS/QPF_R24/","GDFS/QPF_R12/","GDFS/QPF_R06/","GDFS/QPF_R03/",
+            "GDFS/QPF_PPH/","GDFS/OEFS_TMP/","GDFS/OEFS_TMIN/","GDFS/OEFS_TMAX/","GDFS/OEFS_RRH/","GDFS/OEFS_RHMX/","GDFS/OEFS_RHMI/","GDFS/OEFS_ECT/"]
+    for yb in ybll:
+        GetUrlAndDownloadsFileByType(yb,"5KM预报网格")
 
