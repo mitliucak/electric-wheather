@@ -7,7 +7,8 @@ urlconfig = {
    # 'jkurl': 'http://111.198.60.33:8082/thredds/catalog/testAll/',
     #'localdirpath':'D:/python_projects/dlqx/update/'
    'jkurl': 'http://121.52.212.109:8082/thredds/catalog/testAll/',
-   'localdirpath': '/meteorological/meteorological_file/update/'
+   #'localdirpath': '/meteorological/meteorological_file/update/'
+   'localdirpath': '/data/history_data/'
 }
 
 db_url = {

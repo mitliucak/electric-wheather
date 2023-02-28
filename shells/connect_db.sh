@@ -1,2 +1,3 @@
 #!/bin/sh
-mysql -h127.0.0.1 -P13308 -uroot -p123456 -Ddlqx_08
+db=$1
+mysql -h127.0.0.1 -P1330${db} -uroot -p123456 -Ddlqx_0${db}
