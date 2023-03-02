@@ -862,10 +862,10 @@ def SetJrsjFileStoreStatus1(qxsjs):
         print("SetJrsjFileStoreStatus1(1) ----- ")
 
 
-# if __name__ == '__main__':
-#     RadiIntoMysql("F:/lscf/SX_RADI_HOR_20200809010000.TXT",15293)
-#     # ncjrsj = GetJrsjByTypeNoFileStore("5KM预报网格")
-#     # JrsjYbNCFilesIntoMysql(ncjrsj)
+if __name__ == '__main__':
+    #RadiIntoMysql("F:/lscf/SX_RADI_HOR_20200809010000.TXT",15293)
+    ncjrsj = GetJrsjByTypeNoFileStore("5KM预报网格")
+    JrsjYbNCFilesIntoMysql(ncjrsj)
 #     ncssjrsj = GetJrsjByTypeNoFileStore("3KM实时网格")
 #     JrsjSsNCFilesIntoMysql(ncssjrsj)
     # jrsjCgqxzh = GetJrsjByTypeNoFileStore("常规气象灾害")

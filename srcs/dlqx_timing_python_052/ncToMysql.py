@@ -47,7 +47,7 @@ def getNcFile():
             # conn = pymysql.connect(host='localhost', user='root', passwd='', port=3306, db='dlqx13306')  # 连接数据库
             # cursor = conn.cursor()
             print("begin connect mysql")
-            conn = jaydebeapi.connect(driver,jdbc_url1,uandp,jar_file)
+            conn = jaydebeapi.connect(driver,jdbc_url3,uandp,jar_file)
             cursor = conn.cursor()
             print("end connect mysql")
             cursor.execute(sql)
